@@ -1,0 +1,478 @@
+// customize bootstrap variables here:
+//@import "variables";
+@import "bootstrap";
+
+.center-block {
+    float:none;
+}
+.container-fluid {
+    overflow:hidden;
+}
+//.row {
+//    margin-left: 0px !important;
+//    margin-right: 0px !important;
+//}
+
+//VARAIBLES
+$red: #c2002f;
+$green: #2dc4be;
+$yellow: #f5e84c;
+$black: #222222;
+$gray60: #666666;
+$gray40: #999999;
+$gray20: #cccccc;
+$gray10: #e5e5e5;
+
+//MIXINS
+@mixin block-rel {
+    display: block;
+    position: relative;
+}
+@mixin block-ab {
+    display: block;
+    position: absolute;
+}
+@mixin block-fix {
+    display: block;
+    position: fixed;
+}
+@mixin inline-rel {
+    display: inline-block;
+    position: relative;
+}
+@mixin rounded {
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    overflow: hidden;
+}
+@mixin round {
+    border-radius: 1000px;
+    -moz-border-radius: 1000px;
+    -webkit-border-radius: 1000px;
+    overflow: hidden;
+}
+@mixin proxima {
+    font-family: "proxima-nova", arial, sans-serif;
+    color: $black;
+}
+@mixin tisa {
+    font-family: "ff-tisa-web-pro", arial, sans-serif;
+    color: $black;
+}
+@mixin text-shadow {
+    text-shadow: 0 0 5px $gray60;
+    -moz-text-shadow: 0 0 5px $gray60;
+    -webkit-text-shadow: 0 0 5px $gray60;
+    -ms-text-shadow: 0 0 5px $gray60;
+}
+@mixin trans-one {
+    transition: .3s all;
+    -moz-transition: .3s all;
+    -webkit-transition: .3s all;
+    -ms-transition: .3s all;
+}
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+@mixin fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:.6s;
+    -moz-animation-duration:.6s;
+    animation-duration:.6s;
+}
+
+@-webkit-keyframes slideDown { from { height:0px;padding:0px; } to { height:82px;padding:20px; } }
+@-moz-keyframes slideDown { from { height:0px;padding:0px; } to { height:82px;padding:20px; } }
+@keyframes slideDown { from { height:0px;padding:0px; } to { height:82px;padding:20px; } }
+
+@mixin slideDown {
+    height:0;
+    -webkit-animation:slideDown ease-in 1;
+    -moz-animation:slideDown ease-in 1;
+    animation:slideDown ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:.6s;
+    -moz-animation-duration:.6s;
+    animation-duration:.6s;
+}
+
+//GLOBAL
+* {
+    box-sizing: border-box;
+}
+html, body, main {
+    @include block-rel;
+    width: 100%; height: 100%;
+    padding:0px !important;
+}
+section {
+    @include block-rel;
+    width: 100%;
+    padding:0px !important;
+}
+a {
+    text-decoration: none !important;
+}
+.align-right {
+    text-align: right;   
+}
+.button {
+    font-family: "proxima-nova-condensed", arial, sans-serif !important;
+    color: $black;
+    font-size: 20px;
+    font-weight: 900;
+    @include rounded;
+}
+.dotted {
+    @include block-ab;
+    height:inherit;
+    top:0;right:0;bottom:0;left:0;
+    background:radial-gradient(#333332 15%, transparent 16%), radial-gradient(#333332 15%, transparent 16%);
+    background-size: 4px 4px;
+    background-position: 0 0, 30px 30px;
+}
+.active {
+    @include fadeIn;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "proxima-nova-condensed", arial, sans-serif;
+    color: $black;
+}
+h1 {
+    font-size: 60px;
+    font-weight: 900;
+}
+h2 {
+    font-size: 45px;
+    font-weight: 900;
+}
+h3 {
+    font-size: 30px;
+    font-weight: 100;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 100;
+}
+h5 {
+    font-size: 16px;
+    font-weight: 900;
+}
+h6 {
+    font-size: 12px;
+    font-weight: 900;
+}
+p {
+    font-family: "ff-tisa-web-pro", arial, sans-serif;
+    color: $black;
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+
+
+//@-webkit-keyframes pulsate {
+//    0% {-webkit-transform: scale(1, 1), rotate(-14deg);}
+//    50% {-webkit-transform: scale(1.05, 1.05), rotate(-14deg);}
+//    100% {-webkit-transform: scale(1, 1), rotate(-14deg);}
+//}
+
+///////////////////MAIN STYLES
+
+
+
+///////////TOP-IMAGE
+#top-image {
+    height: 80vh;
+    background-image:url('../resources/images/barn.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat:  no-repeat;
+    
+    #main-logo {
+        height: 300px;
+        background-image:url('../resources/images/mainlogo.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat:  no-repeat;
+        margin-top: 170px;
+        
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+}
+#hiring {
+    @include block-ab;
+    top:10px;left:10px;
+    width:200px;height:200px;
+    background-image:url('../resources/images/hiringbadge.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat:  no-repeat;
+    transform:rotate(-14deg);
+//    -webkit-animation: pulsate 2s ease-out;
+//    -webkit-animation-iteration-count: infinite; 
+    -ms-transform:rotate(-14deg);
+    -webkit-transform:rotate(-14deg);
+    -moz-transform:rotate(-14deg);
+    @include trans-one;
+    &:hover {
+        width:220px;height:220px;
+        top:0px;left:0px;
+    }
+}
+
+//////////ABOUT
+.about-box {
+    padding: 30px 20px;
+        
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    
+    h2 {
+        font-weight: 100;
+        text-transform: uppercase;
+    }
+}
+
+
+
+
+#special {
+    @include block-rel;
+    width:100%;
+    padding: 10px 0px 15px;
+    text-align: center;
+    background: $red;
+    overflow:hidden;
+    @include trans-one;
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+    h3 {
+        @include inline-rel;
+//        font-family: "ff-tisa-web-pro", serif;
+        font-style: italic;
+        color:white;
+    }
+    #reservation-button {
+        @include inline-rel;
+        padding: 10px 20px;
+        margin-left: 0px;
+        background: rgba(255,255,255,.9);
+        color: $red;
+        font-weight:900;
+        &:hover {
+            background: rgba(255,255,255,1);
+        }
+    }
+}
+.slideDown {
+    @include slideDown;
+}
+
+
+
+//////////FORM
+#form {
+    background:#f5f5f5;
+    div {
+        padding: 0px 20px 30px;
+        #signup-form {
+            padding: 30px 20px;
+
+            input {
+                font-family: "ff-tisa-web-pro", arial, sans-serif;
+                color: $black;
+                font-weight: 900;
+                font-size: 25px;
+                padding: 10px 0px;
+                margin: 0px 10px;
+                border: 0px;
+                outline:0px;
+                color: $gray60;
+                background:#f5f5f5;
+                border-bottom: 3px solid $gray20;
+                margin-top: 10px;
+            }
+            .button {
+                border: 3px solid $gray20;
+                @include trans-one;
+                color: $gray20;
+                &:hover {
+                    border-color: $gray60;
+                    color: $gray60;
+                }
+                
+            }
+        }
+    }
+}
+
+
+////////FOOTER 
+footer {
+    padding: 10px 30px 10px;
+    background: $black;
+    p {color:$gray40;}
+    @include trans-one;
+    a {
+        color: $gray40;
+        &:hover {
+            color:$gray20;
+        }
+    }
+    #social {
+        text-align: right;
+    
+        .social-icon {
+            @include inline-rel;
+            width:40px;height:40px;
+            background-size:contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 15px 10px 0px;
+            @include trans-one;
+            opacity:.6;
+            &:hover {
+                opacity: .8;
+            }
+        }
+        #facebook {
+            background-image:url('../resources/icons/facebook.png');
+        }
+        #twitter {
+            background-image:url('../resources/icons/twitter.png');
+        }
+    }
+    #addy {
+        margin-top:25px;
+    }
+    #colophon {
+        @include block-rel;
+        width: 100%; height: 12px;
+        color: $gray40;
+        font-size: 10px;
+        text-align: center;
+        margin-top: 0px;
+        opacity:.7;
+        p {
+            margin: 0px 0px 0px !important;   
+        }
+        a {
+            color: white;
+            &:hover {
+                color: #f27b22;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 992px) {
+
+    
+.about-box {
+    padding: 30px 40px;
+    text-align: left !important;
+        
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    
+    h2 {
+        font-weight: 100;
+        text-transform: uppercase;
+        text-align: left !important;
+    }
+}  
+   
+    
+footer {
+    #social {
+        text-align: center;
+    }
+    #addy {
+        text-align: center;
+    }
+}
+    
+    
+}
+
+@media screen and (max-width: 480px) {
+
+    
+///////////TOP-IMAGE
+#top-image {
+    height: 480px;
+    background-image:url('../resources/images/barn.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat:  no-repeat;
+    
+    #main-logo {
+        height: 200px;
+        background-image:url('../resources/images/mainlogo.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat:  no-repeat;
+        margin-top: 150px;
+        
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+}
+#hiring {
+    @include block-ab;
+    top:10px;left:10px;
+    width:150px;height:150px;
+    background-image:url('../resources/images/hiringbadge.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat:  no-repeat;
+    transform:rotate(-14deg);
+//    -webkit-animation: pulsate 2s ease-out;
+//    -webkit-animation-iteration-count: infinite; 
+    -ms-transform:rotate(-14deg);
+    -webkit-transform:rotate(-14deg);
+    -moz-transform:rotate(-14deg);
+    @include trans-one;
+    &:hover {
+        width:150px;height:150px;
+        top:10px;left:10px;
+    }
+}
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
